@@ -4,6 +4,6 @@ export const Wrapper = styled.div`
     
 `
 
-export const Text = styled.p`
+export const Text = styled.span`
 
 `

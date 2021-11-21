@@ -27,12 +27,12 @@ export const GlobalStyle = createGlobalStyle`
         }
         
         h2 {
-            font-size: 1.8rem;
+            font-size: 2.25rem;
             font-weight: 600;
         }
         
-        p {
-            font-size: 1.2rem;
+        p, label, input, div, span {
+            font-size: 1.8rem;
             font-weight: 400;
         }
     }
@@ -40,7 +40,8 @@ export const GlobalStyle = createGlobalStyle`
 
 // centering content! Better method!
 export const Container = styled.div`
+    padding-top: 4%;
     height: auto;
-    max-width: 960px;
+    max-width: 480px;
     margin: auto;
 `
