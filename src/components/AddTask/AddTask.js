@@ -11,7 +11,7 @@ const AddItem = ({ handleSetTasks }) => {
     }
     
     function handleSubmit(event) {
-        handleSetTasks(event.target.value);
+        handleSetTasks(value);
         event.preventDefault();
     }
     
@@ -25,3 +25,5 @@ const AddItem = ({ handleSetTasks }) => {
         </form>
     )
 }
+
+export default AddItem;
