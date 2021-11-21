@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Wrapper } from "./AddTask.styles";
 
-const AddItem = ({ handleSetTasks }) => {
+const AddTask = ({ handleSetTasks }) => {
     
     const [value, setValue] = useState("");
     
@@ -26,4 +26,4 @@ const AddItem = ({ handleSetTasks }) => {
     )
 }
 
-export default AddItem;
+export default AddTask;

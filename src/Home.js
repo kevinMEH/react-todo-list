@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { GlobalStyle, Container } from "./GlobalStyle";
 
-import AddItem from "./components/AddTask/AddTask";
+import AddTask from "./components/AddTask/AddTask";
 import List from "./components/List/List";
 
 function Home() {
@@ -32,6 +32,7 @@ function Home() {
 		<Container>
 			<GlobalStyle />
             <AddItem handleSetTasks={handleSetTasks} />
+            <AddTask handleSetTasks={handleSetTasks} />
             <List tasks={tasks} removeTask={removeTask} />
 		</Container>
 	);
