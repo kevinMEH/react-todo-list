@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { GlobalStyle, Container } from "./GlobalStyle";
 
@@ -6,9 +6,14 @@ import AddItem from "./components/AddTask/AddTask";
 import List from "./components/List/List";
 
 function Home() {
-    const [ tasks, setTasks ] = useState([]);
+    const [ tasks, setTasks ] = useState(() => JSON.parse(localStorage.getItem("tasks")));
+    
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
     
     function handleSetTasks(input) {
+        if(input === "") return;
         if(tasks.includes(input)) return; // Task already has input!
         setTasks([...tasks, input]);
     }
@@ -25,9 +30,9 @@ function Home() {
     
 	return (
 		<Container>
+			<GlobalStyle />
             <AddItem handleSetTasks={handleSetTasks} />
             <List tasks={tasks} removeTask={removeTask} />
-			<GlobalStyle />
 		</Container>
 	);
 }
