@@ -12,17 +12,17 @@ const AddItem = ({ handleSetTasks }) => {
     
     function handleSubmit(event) {
         handleSetTasks(value);
+        setValue("");
         event.preventDefault();
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Add New Task:
+        <Wrapper>
+            <form onSubmit={handleSubmit}>
                 <input type="text" value={value} onChange={handleValueChange} />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
+                <input type="submit" value="Add Task" style={{display: "none"}} />
+            </form>
+        </Wrapper>
     )
 }
 
