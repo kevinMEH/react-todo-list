@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 800;
         }
         
