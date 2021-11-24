@@ -19,7 +19,7 @@ const AddTask = ({ handleSetTasks }) => {
     return (
         <Wrapper>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={value} onChange={handleValueChange} />
+                <input type="text" placeholder="Add Task" value={value} onChange={handleValueChange} />
                 <input type="submit" value="Add Task" style={{display: "none"}} />
             </form>
         </Wrapper>
