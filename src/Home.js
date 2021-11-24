@@ -6,16 +6,24 @@ import AddTask from "./components/AddTask/AddTask";
 import List from "./components/List/List";
 
 function Home() {
-    const [ tasks, setTasks ] = useState(() => JSON.parse(localStorage.getItem("tasks")));
+    const [ tasks, setTasks ] = useState(() => {
+        let existingTasks = JSON.parse(localStorage.getItem("tasks"));
+        if(existingTasks) return existingTasks;
+        else return [];
+    });
+    const [ id, setId ] = useState(() => 1);
     
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
     
-    function handleSetTasks(input) {
-        if(input === "") return;
-        if(tasks.includes(input)) return; // Task already has input!
-        setTasks([...tasks, input]);
+    function handleSetTasks(text) {
+        if(text === "") return;
+        for(let task of tasks) {
+            if(task.text === text) return; // No duplicates
+        }
+        setTasks([...tasks, {id: id, text: text}]);
+        setId(id + 1);
     }
     
     function removeTask(task) {
@@ -31,7 +39,8 @@ function Home() {
 	return (
 		<Container>
 			<GlobalStyle />
-            <AddItem handleSetTasks={handleSetTasks} />
+            <h1>React TODO List</h1>
+            <h2>By Kevin Liao</h2>
             <AddTask handleSetTasks={handleSetTasks} />
             <List tasks={tasks} removeTask={removeTask} />
 		</Container>
