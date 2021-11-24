@@ -4,6 +4,8 @@ import { GlobalStyle, Container } from "./GlobalStyle";
 
 import AddTask from "./components/AddTask/AddTask";
 import List from "./components/List/List";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 function Home() {
     const [ tasks, setTasks ] = useState(() => {
@@ -42,7 +44,9 @@ function Home() {
             <h1>React TODO List</h1>
             <h2>By Kevin Liao</h2>
             <AddTask handleSetTasks={handleSetTasks} />
-            <List tasks={tasks} removeTask={removeTask} />
+            <DndProvider backend={HTML5Backend} >
+                <List tasks={tasks} setTasks={setTasks} removeTask={removeTask} />
+            </DndProvider>
 		</Container>
 	);
 }
