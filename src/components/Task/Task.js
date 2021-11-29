@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-import { Wrapper, Text } from "./Task.styles";
+import { Wrapper } from "./Task.styles";
 
 
-const Task = ({ task, index, moveCard, removeTask}) => {
+const Task = ({ task, index, moveCard, removeTask }) => {
     const ref = useRef(null);
     
     // dropping
@@ -46,18 +46,13 @@ const Task = ({ task, index, moveCard, removeTask}) => {
         }
     });
     
-    const [{ isDragging }, drag] = useDrag({
+    const [ , drag] = useDrag({
         type: "task",
         item: () => {
             let id = task.id;
             return { id, index };
-        },
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging()
-        })
+        }
     });
-    
-    const opacity = isDragging ? 0 : 1;
     
     drag(drop(ref));
     
@@ -66,8 +61,8 @@ const Task = ({ task, index, moveCard, removeTask}) => {
     }
     
     return (
-        <Wrapper ref={ref} style={{opacity}} data-handler-id={handlerId} >
-            <Text>{task.text}</Text>
+        <Wrapper ref={ref} data-handler-id={handlerId} >
+            <span>{task.text}</span>
             <button onClick={handleClick}>
                 Remove
             </button>
