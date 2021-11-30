@@ -14,6 +14,8 @@ You can drag and drop to reorder tasks.
 
 The app stores the tasks in localStorage. Tasks will presist between reloads and browser sessions.
 
+[You can test out this project here.](https://kevinmeh.github.io/react-todo-list/)
+
 ## Learn More
 
 [This project uses the React-DND library.](https://github.com/react-dnd/react-dnd/)
