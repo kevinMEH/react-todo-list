@@ -1,9 +1,5 @@
 # react-todo-list
 
-Made by Kevin Liao
-
-Web Development Section 83 EVEN
-
 ## About The Project
 
 This is a TODO list app made using the React Javascript library.
